@@ -1,3 +1,5 @@
+[![.NET](https://github.com/aimenux/MiddlewareStylesDemo/actions/workflows/ci.yml/badge.svg)](https://github.com/aimenux/MiddlewareStylesDemo/actions/workflows/ci.yml)
+
 # MiddlewareStylesDemo
 ```
 Using various styles for writing custom middlewares
@@ -6,11 +8,11 @@ Using various styles for writing custom middlewares
 In this demo, i m using various styles in order to write custom middelwares
 
 >
-> - Inline style
+- Inline style
 >
-> - Convention style
+- Convention style
 >
-> - Factory style
+- Factory style
 >
 
 **`Tools`** : vs22, net 6.0
