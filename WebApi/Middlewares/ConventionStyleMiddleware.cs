@@ -3,18 +3,20 @@
     public class ConventionStyleMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly ILogger<ConventionStyleMiddleware> _logger;
 
-        public ConventionStyleMiddleware(RequestDelegate next)
+        public ConventionStyleMiddleware(RequestDelegate next, ILogger<ConventionStyleMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
-        public async Task InvokeAsync(HttpContext context, ILogger<ConventionStyleMiddleware> logger)
+        public async Task InvokeAsync(HttpContext context)
         {
-            logger.LogInformation("Starting convention middleware");
+            _logger.LogInformation("Starting convention middleware");
             context.Response.Headers.Add("C-CustomHeader", "Convention Middleware");
             await _next(context);
-            logger.LogInformation("Stopping convention middleware");
+            _logger.LogInformation("Stopping convention middleware");
         }
     }
 
