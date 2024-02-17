@@ -19,7 +19,7 @@ public static class InlineStyleMiddlewareExtensions
                 app.Use(async (context, next) =>
                 {
                     app.Logger.LogInformation("Starting inline middleware");
-                    context.Response.Headers.Add("I-CustomHeader", "Inline Middleware");
+                    context.Response.Headers.TryAdd("I-CustomHeader", "Inline Middleware");
                     await next(context);
                     app.Logger.LogInformation("Stopping inline middleware");
                 });
@@ -29,7 +29,7 @@ public static class InlineStyleMiddlewareExtensions
                     a => a.Use(async (context, next) =>
                     {
                         app.Logger.LogInformation("Starting inline middleware");
-                        context.Response.Headers.Add("I-CustomHeader", "Inline Middleware");
+                        context.Response.Headers.TryAdd("I-CustomHeader", "Inline Middleware");
                         await next(context);
                         app.Logger.LogInformation("Stopping inline middleware");
                     }));
@@ -38,7 +38,7 @@ public static class InlineStyleMiddlewareExtensions
                 app.Run(async context =>
                 {
                     app.Logger.LogInformation("Starting inline middleware");
-                    context.Response.Headers.Add("I-CustomHeader", "Inline Middleware");
+                    context.Response.Headers.TryAdd("I-CustomHeader", "Inline Middleware");
                     await context.Response.WriteAsync("Run");
                     app.Logger.LogInformation("Stopping inline middleware");
                 });
@@ -48,7 +48,7 @@ public static class InlineStyleMiddlewareExtensions
                     a => a.Run(async context =>
                     {
                         app.Logger.LogInformation("Starting inline middleware");
-                        context.Response.Headers.Add("I-CustomHeader", "Inline Middleware");
+                        context.Response.Headers.TryAdd("I-CustomHeader", "Inline Middleware");
                         await context.Response.WriteAsync("Map");
                         app.Logger.LogInformation("Stopping inline middleware");
                     }));
@@ -58,7 +58,7 @@ public static class InlineStyleMiddlewareExtensions
                     a => a.Run(async context =>
                     {
                         app.Logger.LogInformation("Starting inline middleware");
-                        context.Response.Headers.Add("I-CustomHeader", "Inline Middleware");
+                        context.Response.Headers.TryAdd("I-CustomHeader", "Inline Middleware");
                         await context.Response.WriteAsync("MapWhen");
                         app.Logger.LogInformation("Stopping inline middleware");
                     }));

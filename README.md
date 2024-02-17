@@ -5,7 +5,7 @@
 Using various styles for writing custom middlewares
 ```
 
-In this demo, i m using various styles in order to write custom middelwares
+In this demo, i m using various styles in order to write custom middlewares
 
 >
 - Inline style
@@ -15,4 +15,4 @@ In this demo, i m using various styles in order to write custom middelwares
 - Factory style
 >
 
-**`Tools`** : vs22, net 6.0
+**`Tools`** : vs22, net 8.0, fluent-assertions, integration-tests

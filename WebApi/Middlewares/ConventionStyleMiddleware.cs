@@ -14,7 +14,7 @@
         public async Task InvokeAsync(HttpContext context)
         {
             _logger.LogInformation("Starting convention middleware");
-            context.Response.Headers.Add("C-CustomHeader", "Convention Middleware");
+            context.Response.Headers.TryAdd("C-CustomHeader", "Convention Middleware");
             await _next(context);
             _logger.LogInformation("Stopping convention middleware");
         }

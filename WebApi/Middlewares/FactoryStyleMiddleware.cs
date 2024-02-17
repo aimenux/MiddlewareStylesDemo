@@ -12,7 +12,7 @@ public class FactoryStyleMiddleware : IMiddleware
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         _logger.LogInformation("Starting factory middleware");
-        context.Response.Headers.Add("F-CustomHeader", "Factory Middleware");
+        context.Response.Headers.TryAdd("F-CustomHeader", "Factory Middleware");
         await next(context);
         _logger.LogInformation("Stopping factory middleware");
     }

@@ -10,18 +10,18 @@ namespace WebApi.Controllers
 
         public DummyController(ILogger<DummyController> logger)
         {
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("response-headers")]
         public IDictionary<string, string> GetResponseHeaders()
         {
-            var requestHeaders =  new Dictionary<string, string>();
+            var responseHeaders =  new Dictionary<string, string>();
             foreach (var (key, value) in Response.Headers.OrderBy(x => x.Key))
             {
-                requestHeaders.Add(key, value);
+                responseHeaders.Add(key, value);
             }
-            return requestHeaders;
+            return responseHeaders;
         }
     }
 }

@@ -5,7 +5,7 @@ using WebApi;
 
 namespace IntegrationTests;
 
-public class WebApiTestFixture : WebApplicationFactory<Startup>
+public class ApiWebApplicationFactory : WebApplicationFactory<Startup>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {

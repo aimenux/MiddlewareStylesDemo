@@ -5,20 +5,20 @@ using Xunit;
 
 namespace IntegrationTests
 {
-    public class DummyControllerTests : IClassFixture<WebApiTestFixture>
+    public class DummyControllerTests : IClassFixture<ApiWebApplicationFactory>
     {
-        private readonly WebApiTestFixture _fixture;
+        private readonly ApiWebApplicationFactory _factory;
 
-        public DummyControllerTests(WebApiTestFixture fixture)
+        public DummyControllerTests(ApiWebApplicationFactory factory)
         {
-            _fixture = fixture;
+            _factory = factory;
         }
 
         [Fact]
         public async Task ShouldAddValidResponseHeaders()
         {
             // arrange
-            var client = _fixture.CreateClient();
+            var client = _factory.CreateClient();
 
             // act
             var response = await client.GetAsync("/dummy/response-headers");
