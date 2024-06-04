@@ -15,4 +15,4 @@ In this demo, i m using various styles in order to write custom middlewares
 - Factory style
 >
 
-**`Tools`** : vs22, net 8.0, fluent-assertions, integration-tests
+**`Tools`** : net 8.0, fluent-assertions, integration-tests

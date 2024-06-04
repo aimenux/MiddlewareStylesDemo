@@ -14,12 +14,13 @@ public class FactoryStyleMiddlewareTests
     public async Task WhenMiddlewareIsInvokedThenShouldAddValidResponseHeader()
     {
         // arrange
+        using var body = new MemoryStream();
         var logger = NullLogger<FactoryStyleMiddleware>.Instance;
         var context = new DefaultHttpContext
         {
             Response =
             {
-                Body = new MemoryStream()
+                Body = body
             }
         };
 

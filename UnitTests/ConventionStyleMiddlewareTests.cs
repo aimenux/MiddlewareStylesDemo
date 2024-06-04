@@ -14,12 +14,13 @@ namespace UnitTests
         public async Task WhenMiddlewareIsInvokedThenShouldAddValidResponseHeader()
         {
             // arrange
+            using var body = new MemoryStream();
             var logger = NullLogger<ConventionStyleMiddleware>.Instance;
             var context = new DefaultHttpContext
             {
                 Response =
                 {
-                    Body = new MemoryStream()
+                    Body = body
                 }
             };
 
